@@ -1,0 +1,68 @@
+### 1. Initiate Payment Transaction (POST)
+POST http://localhost:8080/api/v1/payments
+Content-Type: application/json
+
+{
+  "orderId": "ORDER-1001",
+  "amount": 1499.00,
+  "currency": "INR",
+  "customerId": "CUSTOMER-501",
+  "idempotencyKey": "ORDER-1001-PAYMENT-1"
+}
+
+###
+
+### 2. Initiate Payment Transaction with Random Demo Data (POST)
+POST http://localhost:8080/api/v1/payments/demo/random
+
+###
+
+### 3. Get List of All Payment Transactions (GET)
+GET http://localhost:8080/api/v1/payments
+
+###
+
+### 4. Get Single Payment Transaction Details by ID (GET)
+# Replace {transactionId} with actual ID returned from Initiate Payment
+GET http://localhost:8080/api/v1/payments/replace-with-transaction-id
+
+###
+
+### 5. Receive Asynchronous Webhook Status Update from Gateway (POST)
+# Replace transactionId and gatewayPaymentId with actual values from step 1
+POST http://localhost:8080/api/v1/payments/webhooks/RAZORPAY
+Content-Type: application/json
+
+{
+  "transactionId": "replace-with-transaction-id",
+  "gatewayPaymentId": "razorpay_pay_generated-id",
+  "status": "SUCCESS",
+  "failureReason": null
+}
+
+###
+
+### 6. Get Health Status of All Payment Gateways (GET)
+GET http://localhost:8080/api/v1/gateways/health
+
+###
+
+### 7. Get Health Status of Specific Gateway (GET)
+GET http://localhost:8080/api/v1/gateways/RAZORPAY/health
+
+###
+
+### 8. Manually Reset Gateway Health to HEALTHY (POST)
+POST http://localhost:8080/api/v1/gateways/RAZORPAY/reset-health
+
+###
+
+### 9. Update Gateway Routing Weight (PATCH)
+PATCH http://localhost:8080/api/v1/gateways/STRIPE/weight
+Content-Type: application/json
+
+{
+  "weight": 60
+}
+
+###

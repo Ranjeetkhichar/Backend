@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: dynamic-payment-routing
+  datasource:
+    url: jdbc:h2:mem:payments;DB_CLOSE_DELAY=-1;MODE=PostgreSQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+payment:
+  routing:
+    failure-threshold: 3
+    cooldown: 30s
+    max-attempts: 3
+    recovery-scan-delay-ms: 5000
+    gateways:
+      - name: RAZORPAY
+        weight: 50
+        success-rate: 0.70
+        min-delay-ms: 80
+        max-delay-ms: 250
+      - name: STRIPE
+        weight: 30
+        success-rate: 0.90
+        min-delay-ms: 100
+        max-delay-ms: 300
+      - name: CASHFREE
+        weight: 20
+        success-rate: 0.85
+        min-delay-ms: 60
+        max-delay-ms: 220
+
+  mock-webhook:
+    enabled: true
+    min-delay: 2s
+    max-delay: 5s
+    success-rate: 0.85

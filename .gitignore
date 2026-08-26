@@ -1,0 +1,13 @@
+# IDE / Editor folders and files
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Build and dependency directories (any target directory under any project)
+**/target/
