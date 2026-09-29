@@ -1,0 +1,19 @@
+package org.example.AdderSubstractorThreadSafe;
+
+import java.util.concurrent.Callable;
+
+public class Adder implements Callable<Integer> {
+    private Value val;
+
+    public Adder(Value val) {
+        this.val = val;
+    }
+
+    @Override
+    public Integer call() {
+        for(int i = 1 ; i <= 1000000 ; i++){
+            val.value += i;
+        }
+        return  val.value;
+    }
+}
