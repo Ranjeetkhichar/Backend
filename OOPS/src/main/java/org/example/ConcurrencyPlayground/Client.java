@@ -3,6 +3,7 @@ package org.example.ConcurrencyPlayground;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Client extends Thread {
     public static void main(String[] args) {
@@ -26,5 +27,7 @@ public class Client extends Thread {
             executor.execute(print);
         }
 
+        AtomicInteger count = new AtomicInteger(0);
+        count.addAndGet(10);
     }
 }
