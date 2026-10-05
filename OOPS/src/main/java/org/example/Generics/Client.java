@@ -51,7 +51,7 @@ public class Client {
         printAllAnimalNames(extendedAnimals);
 
         Animal animal = extendedAnimals.get(0);
-        Dog dog = extendedAnimals.get(0);
+//        Dog dog = extendedAnimals.get(0);
         Object object = extendedAnimals.get(0);
 
 //        extendedAnimals.add(new Dog());
@@ -61,13 +61,24 @@ public class Client {
         //Lower bound Generics -> Only Dog and parent of Dog is allowed
         List<? super Dog> superDogs = new ArrayList<>();
         superDogs = dogs; //=> Any ArrayList of class which is Dog or parent/superClass of Dog.
-        superDogs = cats;
+//        superDogs = cats;
         superDogs = animals;
 
-        Dog d = superDogs.get(0);
-        Animal a = superDogs.get(0);
+//        Dog d = superDogs.get(0);
+//        Animal a = superDogs.get(0);
         Object obj = superDogs.get(0);
 
+        //wildcard
+        List<?> someList = dogs;
+        someList = cats;
+        someList = animals;
+
+        // can't add, can't read (except for object)
+        Object o2 = someList.get(0);
+
+
+        int[] array = {1, 2, 3};
+        int x = array[1];
 
 
     }
