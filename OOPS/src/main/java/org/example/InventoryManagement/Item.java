@@ -8,10 +8,10 @@ import lombok.Setter;
 public class Item implements Comparable<Item> {
     private int id;
     private String name;
-    private int price;
+    private double price;
     private int quantity;
 
-    public Item(String name, int price, int quantity) {
+    public Item(String name, double price, int quantity) {
         this.id = generateUniqueId();
         this.name = name;
         this.price = price;
@@ -24,7 +24,7 @@ public class Item implements Comparable<Item> {
 
     @Override
     public int compareTo(Item o) {
-        return this.price - o.price;
+        return (int) (this.price - o.price);
     }
 
     private int generateUniqueId() {
