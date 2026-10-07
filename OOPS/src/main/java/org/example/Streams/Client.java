@@ -8,6 +8,15 @@ import static java.util.stream.Collectors.toList;
 
 public class Client{
     public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        // What does the following code snippet do?
+        int sum = numbers.stream()
+                .map(n -> n * n)
+                .reduce(0, Integer::sum);
+
+        System.out.println("Sum: " + sum);
+
         List<Integer> list = List.of(1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6);
 
         list.stream().forEach((x) -> {
@@ -278,6 +287,5 @@ public class Client{
 
         }
     };
-
 
 }
