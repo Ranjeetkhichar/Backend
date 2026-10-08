@@ -2,6 +2,7 @@ package org.example.Exception;
 
 import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
+import java.util.logging.FileHandler;
 
 public class Client {
     public static void main(String[] args) {
