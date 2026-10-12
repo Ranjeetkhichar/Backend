@@ -1,6 +1,4 @@
-package org.example.DesginPatterns.Builder;
-
-import lombok.Builder;
+package org.example.DesginPatterns.Builder.StudentBuilder;
 
 public class Student {
     private String name;

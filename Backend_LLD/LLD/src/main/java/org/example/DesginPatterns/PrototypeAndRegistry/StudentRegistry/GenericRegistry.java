@@ -1,4 +1,4 @@
-package org.example.DesginPatterns.PrototypeAndRegistry;
+package org.example.DesginPatterns.PrototypeAndRegistry.StudentRegistry;
 
 import java.util.HashMap;
 

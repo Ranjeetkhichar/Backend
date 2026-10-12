@@ -1,4 +1,4 @@
-package org.example.DesginPatterns.Builder.HW;
+package org.example.DesginPatterns.Builder.MessageBuilder;
 
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeAll;

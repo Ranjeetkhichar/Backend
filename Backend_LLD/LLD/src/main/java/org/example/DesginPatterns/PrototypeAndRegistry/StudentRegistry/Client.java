@@ -1,4 +1,4 @@
-package org.example.DesginPatterns.PrototypeAndRegistry;
+package org.example.DesginPatterns.PrototypeAndRegistry.StudentRegistry;
 
 public class Client {
     static StudentRegistry studentRegistry = new StudentRegistry();
