@@ -1,6 +1,6 @@
-package org.example.DesginPatterns.Builder;
+package org.example.DesginPatterns.Builder.StudentBuilder;
 
-import org.example.DesginPatterns.Builder.Student.StudentBuilder;
+import org.example.DesginPatterns.Builder.StudentBuilder.Student.StudentBuilder;
 
 public class Client {
     public static void main(String[] args) {

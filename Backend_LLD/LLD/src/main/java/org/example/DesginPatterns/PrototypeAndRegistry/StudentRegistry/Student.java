@@ -1,4 +1,4 @@
-package org.example.DesginPatterns.PrototypeAndRegistry;
+package org.example.DesginPatterns.PrototypeAndRegistry.StudentRegistry;
 
 public class Student implements Prototype<Student> {
     private String name;
