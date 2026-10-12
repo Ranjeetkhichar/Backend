@@ -1,4 +1,4 @@
-package org.example.DesginPatterns.Factory;
+package org.example.DesginPatterns.Factory.MysqlFactory;
 
 public class MysqlDB implements Database {
     @Override
