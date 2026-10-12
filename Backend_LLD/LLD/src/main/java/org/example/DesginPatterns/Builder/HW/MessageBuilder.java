@@ -5,99 +5,75 @@ package org.example.DesginPatterns.Builder.HW;
 @WithBuilder
 public class MessageBuilder {
 
-    private final MessageType messageType;
-    private final String content;
-    private final String sender;
-    private final String recipient;
-    private final boolean isDelivered;
-    private final long timestamp;
+    private MessageType messageType;
+    private String content;
+    private String sender;
+    private String recipient;
+    private boolean isDelivered;
+    private long timestamp;
 
-    private MessageBuilder(Builder builder) {
-        this.messageType = builder.messageType;
-        this.content = builder.content;
-        this.sender = builder.sender;
-        this.recipient = builder.recipient;
-        this.isDelivered = builder.isDelivered;
-        this.timestamp = builder.timestamp;
+    private MessageBuilder() {}
+
+    public static MessageBuilder builder() {
+        return new MessageBuilder();
     }
 
-    public static Builder getBuilder() {
-        return new Builder();
+    public Message build() {
+        return new Message(this);
     }
 
-    public static Builder build() {
-        return new Builder();
+    public MessageType getMessageType() {
+        return messageType;
     }
 
+    public MessageBuilder setMessageType(MessageType messageType) {
+        this.messageType = messageType;
+        return this;
+    }
 
-    public static class Builder {
-        private MessageType messageType;
-        private String content;
-        private String sender;
-        private String recipient;
-        private boolean isDelivered;
-        private long timestamp;
+    public String getContent() {
+        return content;
+    }
 
-        private Builder(){}
+    public MessageBuilder setContent(String content) {
+        this.content = content;
+        return this;
+    }
 
-        public MessageBuilder build() {
-            return new MessageBuilder(this);
-        }
+    public String getSender() {
+        return sender;
+    }
 
-        public String getContent() {
-            return content;
-        }
+    public MessageBuilder setSender(String sender) {
+        this.sender = sender;
+        return this;
+    }
 
-        public Builder setContent(String content) {
-            this.content = content;
-            return this;
-        }
+    public boolean isDelivered() {
+        return isDelivered;
+    }
 
-        public String getSender() {
-            return sender;
-        }
+    public MessageBuilder setDelivered(boolean delivered) {
+        isDelivered = delivered;
+        return this;
+    }
 
-        public Builder setSender(String sender) {
-            this.sender = sender;
-            return this;
-        }
+    public String getRecipient() {
+        return recipient;
+    }
 
-        public String getRecipient() {
-            return recipient;
-        }
+    public MessageBuilder setRecipient(String recipient) {
+        this.recipient = recipient;
+        return this;
+    }
 
-        public Builder setRecipient(String recipient) {
-            this.recipient = recipient;
-            return this;
-        }
+    public long getTimestamp() {
+        return timestamp;
+    }
 
-        public boolean isDelivered() {
-            return isDelivered;
-        }
-
-        public Builder setDelivered(boolean delivered) {
-            isDelivered = delivered;
-            return this;
-        }
-
-        public long getTimestamp() {
-            return timestamp;
-        }
-
-        public Builder setTimestamp(long timestamp) {
-            this.timestamp = timestamp;
-            return this;
-        }
-
-        public MessageType getMessageType() {
-            return messageType;
-        }
-
-        public Builder setMessageType(MessageType messageType) {
-            this.messageType = messageType;
-            return this;
-        }
-
+    public MessageBuilder setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+        return this;
     }
 
 }

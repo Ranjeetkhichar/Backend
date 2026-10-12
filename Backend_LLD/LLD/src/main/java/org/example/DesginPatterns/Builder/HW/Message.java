@@ -19,13 +19,17 @@ public class Message {
     }
 
 
-    public Message(MessageBuilder.Builder builder) {
+    public Message(MessageBuilder builder) {
         this.messageType = builder.getMessageType(); // or builder.messageType if accessible
         this.content = builder.getContent();
         this.sender = builder.getSender();
         this.recipient = builder.getRecipient();
         this.isDelivered = builder.isDelivered();
         this.timestamp = builder.getTimestamp();
+    }
+
+    public static MessageBuilder builder() {
+        return MessageBuilder.builder();
     }
 
     public MessageType getMessageType() {
