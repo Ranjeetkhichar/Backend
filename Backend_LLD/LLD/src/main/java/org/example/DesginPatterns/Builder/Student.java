@@ -1,5 +1,7 @@
 package org.example.DesginPatterns.Builder;
 
+import lombok.Builder;
+
 public class Student {
     private String name;
     private int age;
