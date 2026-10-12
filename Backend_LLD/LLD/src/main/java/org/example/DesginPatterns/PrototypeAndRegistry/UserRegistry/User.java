@@ -1,7 +1,7 @@
 package org.example.DesginPatterns.PrototypeAndRegistry.UserRegistry;
 
 
-public class User{
+public class User implements ClonableObject <User> {
     private long userId;
 
     private String username;
@@ -17,6 +17,15 @@ public class User{
         this.displayName = displayName;
         this.age = age;
         this.type = type;
+    }
+
+    public User(User user) {
+        this.userId = user.getUserId();
+        this.username = user.getUsername();
+        this.email = user.getEmail();
+        this.displayName = user.getDisplayName();
+        this.age = user.getAge();
+        this.type = user.getType();
     }
 
     public long getUserId() {
@@ -44,4 +53,8 @@ public class User{
     }
 
 
+    @Override
+    public User cloneObject() {
+        return new User(this);
+    }
 }
